@@ -19,6 +19,7 @@ int startProgram() {
     printMenu();
     option = chooseOption();
     // Handle option here
+    proceedOption(option);
     return 0;
 }
 
@@ -37,4 +38,36 @@ int chooseOption() {
     refresh();
     scanw("%d", &option);
     return option;
+}
+
+int proceedOption(int option) {
+    switch (option)
+    {
+    case 1:
+        addItemToArray();
+        break;
+    
+    default:
+        break;
+    }
+}
+
+int *addItemToArray() {
+    int number;
+    // if (/* condition */)
+    // {
+    //     /* code */
+    // }
+    // else {
+        printw("How many element do you want to add to the current array? \n");
+        refresh();
+        scanw("%d", &number);
+        int addArr[number];
+        for (int i = 0; i < number; i++)
+        {
+            scanw("%d", &addArr[i]);
+        }
+        
+        
+    // }
 }
