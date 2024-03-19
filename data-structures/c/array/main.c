@@ -1,17 +1,40 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <ncurses.h>
+
+int startProgram();
+void printMenu();
+int chooseOption();
 
 int main() {
-    int array[100];
+    initscr();
+    printw("Welcome to the program!\n");
+    startProgram();
+    endwin();
+    return 0;
+}
 
-    
+int startProgram() {
+    int option;
+    printMenu();
+    option = chooseOption();
+    // Handle option here
+    return 0;
 }
 
 void printMenu() {
-    printf("Array practice in C\n");
-    printf("1. Add item\n");
-    printf("2. Remove item\n");
-    printf("3. Update item\n");
-    printf("4. Exit\n");
+    printw("Array practice in C\n");
+    printw("1. Add item\n");
+    printw("2. Remove item\n");
+    printw("3. Update item\n");
+    printw("4. Exit\n");
+    refresh();
+}
 
-    printf("\tChoose one wisely: ");
+int chooseOption() {
+    int option;
+    printw("Choose one wisely: ");
+    refresh();
+    scanw("%d", &option);
+    return option;
 }
